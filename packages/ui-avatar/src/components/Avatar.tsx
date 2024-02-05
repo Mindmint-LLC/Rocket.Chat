@@ -8,7 +8,7 @@ export type UiAvatarProps = Omit<AvatarProps, 'is'>;
 const Avatar: FC<UiAvatarProps> = (props) => {
 	const [isLoading, setIsLoading] = useState<unknown>(false);
 
-	if (isLoading) {
+	if (isLoading || !props.url) {
 		return <Skeleton aria-hidden variant='rect' {...props} />;
 	}
 

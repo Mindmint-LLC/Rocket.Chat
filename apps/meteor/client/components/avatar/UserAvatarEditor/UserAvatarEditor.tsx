@@ -84,7 +84,10 @@ function UserAvatarEditor({ currentUsername, username, setAvatarObj, disabled, e
 					style={{
 						imageOrientation: rotateImages ? 'from-image' : 'none',
 					}}
-					onError={() => dispatchToastMessage({ type: 'error', message: t('error-invalid-image-url') })}
+					onError={() => {
+						setNewAvatarSource('');
+						dispatchToastMessage({ type: 'error', message: t('error-invalid-image-url') });
+					}}
 				/>
 				<Box display='flex' flexDirection='column' flexGrow='1' justifyContent='space-between' mis={4}>
 					<Box display='flex' flexDirection='row' mbs='none'>
