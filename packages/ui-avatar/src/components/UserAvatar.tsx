@@ -13,11 +13,11 @@ type UserAvatarProps = Pick<UiAvatarProps, 'size'> & {
 	onError?: () => void;
 };
 
-const UserAvatar: FC<UserAvatarProps> = ({ username, etag, size, style, onError }) => {
+const UserAvatar: FC<UserAvatarProps> = ({ username, etag, size, style, onError, ...props }) => {
 	const getUserAvatarPath = useUserAvatarPath();
 	const url = getUserAvatarPath(username, etag);
 
-	return <Avatar style={style} url={url} data-username={username} title={username} size={size} objectFit onError={onError} />;
+	return <Avatar style={style} url={url} data-username={username} title={username} size={size} objectFit onError={onError} {...props} />;
 };
 
 export default memo(UserAvatar);
