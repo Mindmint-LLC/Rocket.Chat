@@ -17,6 +17,5 @@
   "addons": [
     "mongolab",
     "logentries"
-  ],
-  "stack": "container"
+  ]
 }
